@@ -17,9 +17,8 @@ phases:
   post_build:
     commands:
       - echo "Build Completed!!"
+      - zip -r build.zip build/libs
 artifacts:
   files:
-    - 'libs/**/*'  # Ensure this matches your output directory
-  base-directory: build  # Adjust this to the directory where your build outputs are stored
+    - build.zip
   discard-paths: yes
-  packaging: zip
