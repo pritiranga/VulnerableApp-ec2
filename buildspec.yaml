@@ -20,6 +20,6 @@ phases:
 artifacts:
   files:
     - '**/*'
-  packaging: zip      
-
-  
+  base-directory: build
+  discard-paths: yes
+  packaging: zip 
