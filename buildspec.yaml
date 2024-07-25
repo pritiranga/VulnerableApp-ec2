@@ -2,9 +2,10 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      java: corretto11
     commands:
       - apt-get update
-      - apt-get install openjdk-11-jdk -y
       - apt-get install gradle -y
   build:
     commands:
