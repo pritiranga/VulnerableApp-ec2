@@ -19,7 +19,7 @@ phases:
       - echo "Build Completed!!"
 artifacts:
   files:
-    - '**/*'
-  base-directory: build
+    - 'libs/**/*'  # Ensure this matches your output directory
+  base-directory: build  # Adjust this to the directory where your build outputs are stored
   discard-paths: yes
-  packaging: zip 
+  packaging: zip
