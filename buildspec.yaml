@@ -7,9 +7,12 @@ phases:
     commands:
       - apt-get update
       - apt-get install gradle -y
+  pre_build:
+    commands:
+      - ./gradlew clean
   build:
     commands:
-      - gradle build
+      - ./gradlew build
   post_build:
     commands:
       - echo "Build Completed!!"
