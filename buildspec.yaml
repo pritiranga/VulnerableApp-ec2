@@ -6,9 +6,6 @@ phases:
       - apt-get update
       - apt-get install openjdk-11-jdk -y
       - apt-get install gradle -y
-  pre_build:
-    commands:
-      - gradle clean
   build:
     commands:
       - gradle build
