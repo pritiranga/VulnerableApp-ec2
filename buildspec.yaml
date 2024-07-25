@@ -12,7 +12,10 @@ phases:
     commands:
       - chmod +x gradlew
       - ./gradlew build
- 
+
 artifacts:
   files:
-    - '**/*''
+    - '**/*'
+  base-directory: build
+  discard-paths: yes
+  packaging: zip
