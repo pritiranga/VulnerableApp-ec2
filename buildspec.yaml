@@ -7,18 +7,12 @@ phases:
     commands:
       - apt-get update
       - apt-get install gradle -y
-  pre_build:
-    commands:
-      - chmod +x gradlew
-      - ./gradlew clean
+
   build:
     commands:
+      - chmod +x gradlew
       - ./gradlew build
-  post_build:
-    commands:
-      - echo "Build Completed!!"
-      - zip -r build.zip build/libs
+ 
 artifacts:
   files:
-    - build.zip
-  discard-paths: yes
+    - **/*
