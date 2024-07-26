@@ -6,7 +6,7 @@ phases:
       java: corretto11
     commands:
       - apt-get update
-      - apt-get install gradle -y
+      - apt-get install -y gradle zip
 
   pre_build:
     commands:
@@ -23,11 +23,9 @@ phases:
     commands:
       - echo "Build Completed!!"
       - ls -la build
-      - zip build.zip build
+      - zip -r build.zip build
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: build
+    - build.zip
   discard-paths: yes
-  packaging: zip
