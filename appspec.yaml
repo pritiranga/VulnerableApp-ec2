@@ -1,7 +1,8 @@
 version: 0.0
 os: linux
+
 files:
-  - source: build-artifacts.zip
+  - source: '**/*'
     destination: /home/ubuntu/myapp
     overwrite: true
 
