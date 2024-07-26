@@ -19,16 +19,6 @@ phases:
       - echo "Build started"
       - ./gradlew build
 
-  post_build:
-    commands:
-      - echo "Build Completed!!"
-      - echo "Creating ZIP file of build artifacts"
-      - mkdir -p build-artifacts
-      - cp build/libs/*.jar build-artifacts/
-      - zip -r build-artifacts.zip build-artifacts/
-      - echo "ZIP file created"
-
 artifacts:
   files:
-    - build-artifacts.zip
-  discard-paths: yes
+    - '**/*'
