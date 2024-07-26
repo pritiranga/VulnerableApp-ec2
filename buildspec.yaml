@@ -8,10 +8,21 @@ phases:
       - apt-get update
       - apt-get install gradle -y
 
+  pre_build:
+    commands:
+      - echo "Pre-build started"
+      - chmod +x gradlew
+      - ./gradlew clean
+
   build:
     commands:
-      - chmod +x gradlew
+      - echo "Build started"
       - ./gradlew build
+
+  post_build:
+    commands:
+      - echo "Build Completed!!"
+      - ls -la build
 
 artifacts:
   files:
