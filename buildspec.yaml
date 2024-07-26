@@ -23,6 +23,7 @@ phases:
     commands:
       - echo "Build Completed!!"
       - ls -la build
+      - zip build.zip build
 
 artifacts:
   files:
