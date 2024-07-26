@@ -140,3 +140,21 @@ jacocoTestReport {
             xml.destination file("${buildDir}/reports/jacoco.xml")
     }
 }
+
+// Define a task to create a ZIP file of the build artifacts
+task zipBuild(type: Zip) {
+    group = 'Build'
+    description = 'Packages build artifacts into a ZIP file'
+    
+    // Specify the output file name and location
+    archiveFileName = 'build-artifacts.zip'
+    destinationDirectory = file("$buildDir/archives")
+
+    // Specify which files to include in the ZIP
+    from(file("$buildDir/libs")) // Include JAR files or other build artifacts
+    from(file("$buildDir/classes")) // Include compiled classes
+    from(file("$buildDir/resources")) // Include resources if needed
+}
+
+// Ensure that the zipBuild task is run after the build task
+build.finalizedBy zipBuild
