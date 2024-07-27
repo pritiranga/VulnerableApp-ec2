@@ -20,7 +20,9 @@ phases:
       - sudo mkdir -p /opt/javaapp  # Ensure the directory exists
       - sudo cp -r * /opt/javaapp
       - ./gradlew build
+      - cp build/libs/*.jar /opt/javaapp/  # Copy the JAR files to the target directory
 
 artifacts:
   files:
     - '**/*'
+  base-directory: /opt/javaapp
