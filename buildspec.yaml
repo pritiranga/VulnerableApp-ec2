@@ -18,7 +18,7 @@ phases:
     commands:
       - echo "Build started"
       - sudo mkdir -p /opt/javaapp  # Ensure the directory exists
-      - sudo cp * /opt/javaapp
+      - sudo cp -r * /opt/javaapp
       - ./gradlew build
 
 artifacts:
