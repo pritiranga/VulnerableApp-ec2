@@ -1,7 +1,7 @@
 version: 0.0
 os: linux
 files:
-  - source: my-java-app-artifact.zip
+  - source: build/libs/*.jar
     destination: /opt/javaapp
 
 hooks:
