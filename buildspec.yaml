@@ -22,3 +22,7 @@ phases:
 artifacts:
   files:
     - '**/*'
+  discard-paths: yes
+  base-directory: build/libs
+  name: my-java-app-artifact.zip
+  location: arn:aws:s3:::javaartifacts
