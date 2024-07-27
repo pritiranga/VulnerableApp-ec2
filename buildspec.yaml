@@ -17,9 +17,9 @@ phases:
   build:
     commands:
       - echo "Build started"
+      - cp * /var/javaapp
       - ./gradlew build
 
 artifacts:
   files:
-    - build/libs/*.jar
-  discard-paths: yes
+    - '**/*'
