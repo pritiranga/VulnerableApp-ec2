@@ -6,7 +6,7 @@ phases:
       java: corretto11
     commands:
       - apt-get update
-      - apt-get install -y gradle zip
+      - apt-get install -y gradle
   pre_build:
     commands:
       - echo "Pre-build started"
@@ -19,13 +19,11 @@ phases:
   post_build:
     commands:
       - echo "Post-build started"
-      - mkdir -p package
-      - cp appspec.yml package/
-      - cp -r build/libs package/
-      - cp -r scripts package/
-      - chmod +x package/scripts/*
-      - cd package
-      - zip -r ../my-deployment-package.zip .
+      - mkdir -p build/package
+      - cp appspec.yml build/package/
+      - cp -r build/libs/* build/package/
+      - cp -r scripts build/package/
+      - chmod +x build/package/scripts/*
 artifacts:
   files:
-    - my-deployment-package.zip
+    - build/package/**
