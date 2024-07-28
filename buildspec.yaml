@@ -16,6 +16,7 @@ phases:
     commands:
       - echo "Build started"
       - ./gradlew build
+      - chmod +x scripts/*.sh
 
 artifacts:
   files:
