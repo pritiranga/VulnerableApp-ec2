@@ -16,14 +16,7 @@ phases:
     commands:
       - echo "Build started"
       - ./gradlew build
-  post_build:
-    commands:
-      - echo "Post-build started"
-      - mkdir -p build/package
-      - cp appspec.yml build/package/
-      - cp -r build/libs/* build/package/
-      - cp -r scripts build/package/
-      - chmod +x build/package/scripts/*
+
 artifacts:
   files:
-    - build/package/**
+    - '**/*'
