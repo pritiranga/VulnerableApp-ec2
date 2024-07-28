@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Starting the application"
+echo "Starting application"
 
 # Create the log directory if it doesn't exist
 mkdir -p /var/log/vulnerableapp
