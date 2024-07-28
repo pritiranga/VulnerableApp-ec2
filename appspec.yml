@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: build/libs/VulnerableApp-1.0.0.jar
-    destination: /opt/vulnerableapp/
+    destination: /tmp/deployment-archive/build/libs/
 
 hooks:
   BeforeInstall:
