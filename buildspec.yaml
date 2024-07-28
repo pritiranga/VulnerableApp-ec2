@@ -23,6 +23,7 @@ phases:
       - cp appspec.yml package/
       - cp -r build/libs package/
       - cp -r scripts package/
+      - chmod +x package/scripts/*
       - cd package
       - zip -r ../my-deployment-package.zip .
 artifacts:
