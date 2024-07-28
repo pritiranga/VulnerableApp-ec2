@@ -1,10 +1,16 @@
 version: 0.2
 
+env:
+  variables:
+    JAR_NAME: "VulnerableApp-1.0.0.jar"  # Replace with your JAR file name
+    DEPLOY_DIR: "/opt/javaapp"           # Directory where the JAR will be deployed
+
 phases:
   install:
     runtime-versions:
       java: corretto11
     commands:
+      - echo "Installing dependencies"
       - apt-get update
       - apt-get install -y gradle zip
 
@@ -17,14 +23,16 @@ phases:
   build:
     commands:
       - echo "Build started"
-      - pwd
-      - sudo mkdir -p /opt/javaapp  # Ensure the directory exists
-      - sudo cp -r * /opt/javaapp
       - ./gradlew build
-      - cp build/libs/*.jar /opt/javaapp/  # Copy the JAR files to the target directory
-            
+      - mkdir -p $DEPLOY_DIR
+      - cp build/libs/$JAR_NAME $DEPLOY_DIR/
+
+  post_build:
+    commands:
+      - echo "Post-build started"
+      - echo "Starting application"
+      - nohup java -jar $DEPLOY_DIR/$JAR_NAME > /var/log/javaapp/javaapp.log 2>&1 &
 
 artifacts:
   files:
     - '**/*'
-  base-directory: /opt/javaapp
